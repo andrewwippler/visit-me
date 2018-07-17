@@ -1,0 +1,23 @@
+version: '2'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./database/db:/var/lib/mysql"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: something-secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+
+  app:
+    build: .
+    volumes:
+      - "./:/var/www/html"
+    ports:
+      - 8080:80
+
+volumes:
+  wordpress-data:
+    driver: local

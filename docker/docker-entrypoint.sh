@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-chmod -R ug+rwx /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R ugo+rwx /var/www/html/storage /var/www/html/bootstrap/cache
 
 if [ "${LARAVEL_KEY_GENERATE-}" == "true" ] ; then 
     php artisan key:generate
