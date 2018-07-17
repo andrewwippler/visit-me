@@ -62,6 +62,7 @@ jobs:
           key: composer-cache-{{ checksum "composer.json" }}
       - run: |
           sudo mv /home/bitnami/project/vendor .
+          npm run production
           docker build -t d.wplr.rocks/visit-me:latest -t d.wplr.rocks/visit-me:$CIRCLE_BUILD_NUM -t d.wplr.rocks/visit-me:$CIRCLE_SHA1 .
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD d.wplr.rocks
           docker push d.wplr.rocks/visit-me
