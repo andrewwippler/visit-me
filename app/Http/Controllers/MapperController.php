@@ -63,8 +63,6 @@ class MapperController extends Controller
         //delete header
         $header = array_shift($rows);
         
-        render($request, "things");
-
         // First_Name	    "0"
         // Address_Line_1	"2"
         // City	        "3"
