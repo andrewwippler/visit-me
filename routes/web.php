@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MapperController@start');
+
+Route::post('/upload', 'MapperController@store');
+
+Route::post('/getmaps', 'MapperController@generateMaps');
